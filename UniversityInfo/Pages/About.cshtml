@@ -1,0 +1,109 @@
+﻿@page
+@model AboutModel
+@{
+    ViewData["Title"] = "Manage Data";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>Enter Student Enrollment No., Name, City, Phone number to create data</h3>
+
+<form method="get" action="/Create" runat="server" border="0" cellpadding="0" cellspacing="0" style="width:100%;float:left">
+    <div class="input-group">
+        <input type="text" name="roll" class="form-control" placeholder="Enrollment No." />
+        <input type="text" name="name" class="form-control" placeholder="Name" />
+        <input type="text" name="city" class="form-control" placeholder="City"/>
+        <input type="text" name="phone" class="form-control" placeholder="Phone"/>
+        <br />
+        <input type="submit" value="Create" class="btn btn-primary" style="float:right"/>
+    </div>
+</form>
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<h3>Data Saved on Server</h3>
+<table border="0" cellpadding="0" cellspacing="0" style="width:10%;float:left">
+    <tbody>
+        <tr>
+            <th>Enroll. no.</th>
+        </tr>
+
+        @foreach (var item in Model.roll)
+        {
+            <tr>
+                <td>@item</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" style="width:30%;float:left">
+    <tbody>
+        <tr>
+            <th>Name</th>
+        </tr>
+
+        @foreach (var item in Model.name)
+        {
+            <tr>
+                <td>@item</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" style="width:30%;float:left">
+    <tbody>
+        <tr>
+            <th>City</th>
+        </tr>
+
+        @foreach (var item in Model.city)
+        {
+            <tr>
+                <td>@item</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" style="width:30%;float:left">
+    <tbody>
+        <tr>
+            <th>Phone</th>
+        </tr>
+
+        @foreach (var item in Model.phone)
+        {
+            <tr>
+                <td>@item</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+
+<h3>Enter student ID to delete his/her data</h3>
+
+<form method="get" action="/Delete" runat="server" border="0" cellpadding="0" cellspacing="0" style="width:100%;float:left">
+    <div class="input-group">
+        <input type="text" name="id" class="form-control" />
+        <input type="submit" value="Delete" class="btn btn-primary" style="background:red;float:right"/>
+    </div>
+</form>
